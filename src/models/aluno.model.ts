@@ -38,9 +38,13 @@ export class Aluno extends Pessoa {
     }
 
     mostrarDados(): string {
-        return `Nome: ${this.nome} | Email: ${this.email} | Curso: ${this._curso}`;
-
-        
+        return `
+        idAluno: ${this._idAluno}    
+        Nome: ${this.nome} 
+        Email: ${this.email}
+        matricula: ${this._matricula}
+        Curso: ${this._curso}
+        mediaFinal ${this._mediaFinal}`;
     }
 
 
@@ -84,7 +88,7 @@ export class Aluno extends Pessoa {
         this._mediaFinal = value;
     }
 
-      aprovado(): string {
+      estaAprovado(): string {
         return this.MediaFinal >= 5 ? "Aprovado" : "Reprovado";
     }
 
