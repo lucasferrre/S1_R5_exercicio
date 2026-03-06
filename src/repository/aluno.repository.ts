@@ -42,9 +42,9 @@ export class AlunoRepository {
         return rows;
     }
 
-    async updateAluno(idProduto:number, aluno: Aluno) {
+    async updateAluno(idAluno:number, aluno: Aluno) {
         const sql = 'UPDATE alunos SET nome =?, email =?,  matricula=?, curso=?, mediaFinal=? WHERE idAluno = ?;';
-        const values = [aluno.Nome, aluno.Email, aluno.Matricula, aluno.Curso, aluno.MediaFinal, idProduto];
+        const values = [aluno.Nome, aluno.Email, aluno.Matricula, aluno.Curso, aluno.MediaFinal, idAluno];
         const [rows] = await db.execute(sql, values);
         return rows;
     }

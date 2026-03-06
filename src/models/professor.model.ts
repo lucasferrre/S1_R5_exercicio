@@ -72,12 +72,6 @@ export class Professor extends Pessoa {
         this._idProfessor = value;
     }
 
-    public set CargaHoraria(value:number){
-         this._validarCargaHoraria(value);
-        this._cargaHoraria = value;
-    }
-
-
 
     public static inserir(nome: string, email: string, Disciplina: string, CargaHoraria: number): Professor {
         return new Professor(nome, email, Disciplina, CargaHoraria);
@@ -102,13 +96,4 @@ export class Professor extends Pessoa {
         }
     }
 
-     private _validarCargaHoraria(value: number): void {
-        if (value === undefined || value === null) {
-        throw new Error("A média final é obrigatória");
-        }
-
-        if (typeof value !== "number" || isNaN(value)) {
-            throw new Error("A média final deve ser um número válido");
-        }
-    }
 }
