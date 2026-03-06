@@ -44,7 +44,7 @@ export class Aluno extends Pessoa {
         Email: ${this.email}
         matricula: ${this._matricula}
         Curso: ${this._curso}
-        mediaFinal ${this._mediaFinal}`;
+        mediaFinal: ${this._mediaFinal}`;
     }
 
 

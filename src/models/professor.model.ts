@@ -35,7 +35,12 @@ export class Professor extends Pessoa {
     }
 
     mostrarDados(): string {
-        return `Nome: ${this.nome} | Email: ${this.email} | Disciplina: ${this._disciplina}`;
+        return `
+        idProfessor: ${this._idProfessor}    
+        Nome: ${this.nome} 
+        Email: ${this.email}
+        disciplina: ${this._disciplina}
+        cargaHoraria: ${this._cargaHoraria}`;
     }
 
 
