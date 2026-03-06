@@ -39,6 +39,8 @@ export class Aluno extends Pessoa {
 
     mostrarDados(): string {
         return `Nome: ${this.nome} | Email: ${this.email} | Curso: ${this._curso}`;
+
+        
     }
 
 
@@ -67,7 +69,6 @@ export class Aluno extends Pessoa {
         return this._dataCad;
     }
 
-
     public set NomeAluno(value: string) {
         this._validarNome(value);
         this.nome = value;
@@ -77,6 +78,17 @@ export class Aluno extends Pessoa {
         this._validarId(value);
         this._idAluno = value;
     }
+
+    public set MediaFinal(value:number){
+         this._validarMediaFinal(value);
+        this._mediaFinal = value;
+    }
+
+      aprovado(): string {
+        return this.MediaFinal >= 5 ? "Aprovado" : "Reprovado";
+    }
+
+
 
     public static inserir(nome: string, email: string, matricula: string, curso: string, mediaFinal: number): Aluno {
         return new Aluno(nome, email, matricula, curso, mediaFinal);
@@ -98,6 +110,16 @@ export class Aluno extends Pessoa {
     private _validarId(value: number): void {
         if (!value || value <= 0 || !Number.isInteger(value)) {
             throw new Error('Id do aluno deve ser um número positivo');
+        }
+    }
+
+     private _validarMediaFinal(value: number): void {
+        if (value === undefined || value === null) {
+        throw new Error("A média final é obrigatória");
+        }
+
+        if (typeof value !== "number" || isNaN(value)) {
+            throw new Error("A média final deve ser um número válido");
         }
     }
 }
